@@ -13,7 +13,17 @@ async function loadNeos(){
         const newNeo = new Neo(neo["id"],neo["name"],averageDiamenter, neo["is_sentry_object"])
         neos.push(newNeo)
     })
-    console.log(neos)
+    renderNEOs(neos)
+}
+
+
+
+function renderNEOs(neos){
+    neos.forEach( neo => {
+        const isSentry = neo.isSentry ? "Perigo de colisão" : "Sem perigo de colisão"
+        const text = `${neo.id} | ${neo.name} | ${neo.averageEstimatedDiameter} | ${isSentry}`
+        console.log(text)
+    })
 }
 
 loadNeos()
